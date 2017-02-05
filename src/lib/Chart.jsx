@@ -15,12 +15,12 @@ class Chart extends PureComponent {
 	componentWillMount() {
 		const { id } = this.props;
 		const { subscribe } = this.context;
-		subscribe("chart_" + id, this.listener);
+		// subscribe("chart_" + id, this.listener);
 	}
 	componentWillUnmount() {
 		const { id } = this.props;
 		const { unsubscribe } = this.context;
-		unsubscribe("chart_" + id);
+		// unsubscribe("chart_" + id);
 	}
 	listener(type, moreProps, state, e) {
 		const { id, onContextMenu } = this.props;
