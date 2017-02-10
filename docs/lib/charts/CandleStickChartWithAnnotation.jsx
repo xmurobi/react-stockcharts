@@ -38,7 +38,7 @@ class CandleStickChartWithAnnotation extends React.Component {
 
 		var annotationProps = {
 			fontFamily: "Glyphicons Halflings",
-			fontSize: 20,
+			fontSize: 10,
 			fill: "#060F8F",
 			opacity: 0.8,
 			text: "\ue182",

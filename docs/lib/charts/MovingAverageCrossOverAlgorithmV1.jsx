@@ -48,7 +48,7 @@ class MovingAverageCrossOverAlgorithmV1 extends React.Component {
 
 		var defaultAnnotationProps = {
 			fontFamily: "Glyphicons Halflings",
-			fontSize: 20,
+			fontSize: 5,
 			opacity: 0.8,
 			onClick: console.log.bind(console),
 		}
@@ -113,7 +113,7 @@ class MovingAverageCrossOverAlgorithmV1 extends React.Component {
 						yAccessor={d => d.close} fill={d => d.close > d.open ? "#6BA583" : "#FF0000"}/>
 
 					<OHLCTooltip origin={[-40, 0]}/>
-					<MovingAverageTooltip onClick={(e) => console.log(e)} origin={[-38, 15]} 
+					<MovingAverageTooltip onClick={(e) => console.log(e)} origin={[-38, 15]}
 						calculators={[ema20, ema50]}/>
 
 					<Annotate with={LabelAnnotation} when={d => d.longShort === "LONG"}

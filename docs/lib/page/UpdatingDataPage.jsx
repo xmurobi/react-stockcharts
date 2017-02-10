@@ -34,6 +34,7 @@ var UpdatingDataPage = React.createClass({
 						</TypeChooser>
 					</Section>
 				</Row>
+
 				<Row>
 					<Section colSpan={2}>
 						<TypeChooser>
@@ -41,6 +42,7 @@ var UpdatingDataPage = React.createClass({
 						</TypeChooser>
 					</Section>
 				</Row>*/}
+
 				<Row>
 					<Section colSpan={2}>
 						<TypeChooser>

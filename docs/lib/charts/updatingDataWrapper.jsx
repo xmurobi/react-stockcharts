@@ -8,7 +8,7 @@ function getDisplayName(ChartComponent) {
 }
 
 export default function updatingDataWrapper(ChartComponent) {
-	const LENGTH = 130;
+	const LENGTH = 30;
 
 	class UpdatingComponentHOC extends React.Component {
 		constructor(props) {

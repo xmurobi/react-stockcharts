@@ -6,8 +6,8 @@ import { timeParse } from "d3-time-format";
 import React from "react";
 import ReactDOM from "react-dom";
 
-import Chart from "./lib/charts/CandleStickChartWithDarkTheme";
-// import Chart from "./lib/charts/OHLCChartWithElderRayIndicator";
+import Chart from "./lib/charts/CandleStickChartForGekkoLiveMarket";
+//import Chart from "./lib/charts/CandleStickChartWithUpdatingData";
 
 var ReadME = require("md/MAIN.md");
 
@@ -27,20 +27,40 @@ if (!window.Modernizr.fetch || !window.Modernizr.promises) {
 	loadPage();
 }
 
-function loadPage() {
-	fetch("data/MSFT.tsv")
-		.then(response => response.text())
-		.then(data => tsvParse(data, d => {
-			d.date = new Date(parseDate(d.date).getTime());
-			d.open = +d.open;
-			d.high = +d.high;
-			d.low = +d.low;
-			d.close = +d.close;
-			d.volume = +d.volume;
+//function loadPage() {
+//	fetch("data/MSFT.tsv")
+//		.then(response => response.text())
+//		.then(data => tsvParse(data, d => {
+//			d.date = new Date(parseDate(d.date).getTime());
+//			d.open = +d.open;
+//			d.high = +d.high;
+//			d.low = +d.low;
+//			d.close = +d.close;
+//			d.volume = +d.volume;
+//
+//			return d;
+//		}))
+//		.then(data => {
+//			ReactDOM.render(<Chart data={data} type="hybrid"/>, document.getElementById("chart"));
+//		});
+//}
 
-			return d;
-		}))
-		.then(data => {
-			ReactDOM.render(<Chart data={data} type="hybrid"/>, document.getElementById("chart"));
-		});
+function loadPage() {
+    var gekkoapi = "http://localhost:7799/api/candles";
+
+    fetch(gekkoapi)
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(json) {
+            for(var i = 0; i < json.length; ++i) {
+                json[i].date = new Date(json[i].start*1000);
+            }
+
+            return json;
+        })
+        .then(data => {
+            ReactDOM.render(<Chart data={data} type="hybrid" data-url={gekkoapi}/>, document.getElementById("chart"));
+        });
+
 }

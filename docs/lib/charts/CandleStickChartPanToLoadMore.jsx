@@ -145,7 +145,7 @@ class CandleStickChartPanToLoadMore extends React.Component {
 					data={data}
 					xScale={xScale} xAccessor={xAccessor} displayXAccessor={displayXAccessor}
 					onLoadMore={this.handleDownloadMore}>
-				<Chart id={1} height={400}
+				<Chart id={1} height={300}
 						yExtents={[d => [d.high, d.low], ema26.accessor(), ema12.accessor()]}
 						padding={{ top: 10, bottom: 20 }}>
 					<XAxis axisAt="bottom" orient="bottom" showTicks={false} outerTickSize={0} />

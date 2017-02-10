@@ -7,7 +7,7 @@ export default class Nav extends React.Component {
 			<nav className="navbar navbar-fixed-top">
 				<div className="container-fluid">
 					<div className="navbar-header">
-						<a className="navbar-brand" href="index.html">React Stockcharts</a>
+						<a className="navbar-brand" href="index.html">JediMaster</a>
 						<div id="debug_here"></div>
 					</div>
 				</div>
